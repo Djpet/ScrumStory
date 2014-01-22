@@ -6,10 +6,10 @@ import static org.junit.Assert.assertNotNull;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import fr.scrumsotry.bean.Story;
 import fr.scrumsotry.dao.mongodb.bean.StoryMongo;
 import fr.scrumsotry.dao.mongodb.impl.StoryDaoMongo;
 import fr.scrumsotry.dao.mongodb.spring.StoryMongoRepository;
+import fr.scrumsotry.domain.Story;
 
 
 public class TUStorDaoyMongo extends AbstractMongoTest {
@@ -33,7 +33,7 @@ public class TUStorDaoyMongo extends AbstractMongoTest {
 		storyDaoMongo.create(story);
 		
 		// Assert
-		StoryMongo storyMongo = storyRepository.findByCodeProjectAndNumber("CODE", 100);
+		StoryMongo storyMongo = storyRepository.findByCodeProjectAndKey("CODE", 100);
 		assertNotNull(storyMongo);
 		assertEquals(story.getName(), storyMongo.getName());
 		assertEquals(story.getCodeProject(), storyMongo.getCodeProject());

@@ -1,6 +1,6 @@
 package fr.scrumsotry.dao;
 
-import fr.scrumsotry.bean.Story;
+import fr.scrumsotry.domain.Story;
 
 /**
  * Classe d'accés au données de type projet.

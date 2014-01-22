@@ -4,10 +4,10 @@ import org.dozer.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import fr.scrumsotry.bean.Story;
 import fr.scrumsotry.dao.IStoryDao;
 import fr.scrumsotry.dao.mongodb.bean.StoryMongo;
 import fr.scrumsotry.dao.mongodb.spring.StoryMongoRepository;
+import fr.scrumsotry.domain.Story;
 
 
 @Repository

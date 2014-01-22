@@ -4,10 +4,10 @@ import org.dozer.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import fr.scrumsotry.bean.Project;
 import fr.scrumsotry.dao.IProjectDao;
 import fr.scrumsotry.dao.mongodb.bean.ProjectMongo;
 import fr.scrumsotry.dao.mongodb.spring.ProjectSpringRepository;
+import fr.scrumsotry.domain.Project;
 
 @Repository
 public class ProjectDaoMongo implements IProjectDao {

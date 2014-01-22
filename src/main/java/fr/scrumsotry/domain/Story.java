@@ -1,4 +1,4 @@
-package fr.scrumsotry.bean;
+package fr.scrumsotry.domain;
 
 import javax.validation.constraints.NotNull;
 

@@ -1,4 +1,4 @@
-package fr.scrumsotry.bean;
+package fr.scrumsotry.domain;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -15,15 +15,15 @@ public class Project {
 	@Getter @Setter
 	private String id;
 	
-	@NotBlank
+	@NotBlank(message="project.code.mandatory")
 	@Getter @Setter
 	private String code;
 
-	@NotBlank
+	@NotBlank(message="project.name.mandatory")
 	@Getter @Setter
 	private String name;
 
-	@NotBlank
+	@NotBlank(message="project.description.mandatory")
 	@Getter @Setter
 	private String description;
 

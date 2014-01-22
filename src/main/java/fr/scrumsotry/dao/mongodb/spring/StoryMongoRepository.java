@@ -7,6 +7,6 @@ import fr.scrumsotry.dao.mongodb.bean.StoryMongo;
 public interface StoryMongoRepository extends MongoRepository<StoryMongo, String> {
 
 	StoryMongo findByName(String name);
-	StoryMongo findByCodeProjectAndNumber(String codeProject, Integer number);
+	StoryMongo findByCodeProjectAndKey(String codeProject, Integer key);
 
 }

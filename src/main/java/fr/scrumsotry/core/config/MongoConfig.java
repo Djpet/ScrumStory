@@ -1,4 +1,4 @@
-package fr.scrumsotry;
+package fr.scrumsotry.core.config;
  
 import org.dozer.Mapper;
 import org.dozer.spring.DozerBeanMapperFactoryBean;
@@ -11,9 +11,12 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 
 import com.mongodb.MongoClient;
  
+/**
+ * Classe de configuration des beans liés à MongoDB.
+ */
 @Configuration
 @EnableMongoRepositories(basePackages = "fr.scrumsotry.dao.mongodb.spring")
-public class SpringMongoConfig {
+public class MongoConfig {
  
 	public @Bean
 	MongoDbFactory mongoDbFactory() throws Exception {

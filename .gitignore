@@ -1,1 +1,6 @@
 /target
+workspace.xml
+tasks.xml
+.idea/dictionaries
+.idea/libraries
+src/test/java/tmp

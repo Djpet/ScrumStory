@@ -10,7 +10,7 @@
 
     <properties>
         <!-- Generic properties -->
-        <java.version>1.7</java.version>
+        <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
@@ -21,12 +21,12 @@
         <servlet.version>2.5</servlet.version>
 
         <!-- Persistence -->
-        <spring-data-mongodb.version>1.4.0.M1</spring-data-mongodb.version>
+        <spring-data-mongodb.version>1.4.2.RELEASE</spring-data-mongodb.version>
 
         <!-- Spring -->
-        <spring-framework.version>3.2.6.RELEASE</spring-framework.version>
+        <spring-framework.version>4.0.3.RELEASE</spring-framework.version>
 
-        <!-- Tools -->
+        <!-- tools -->
         <dozer.version>5.4.0</dozer.version>
         <hibernate-validator.version>4.3.1.Final</hibernate-validator.version>
         <lombok.version>1.12.4</lombok.version>
@@ -124,7 +124,7 @@
             <scope>runtime</scope>
         </dependency>
 
-        <!-- Tools -->
+        <!-- tools -->
         <dependency>
             <groupId>net.sf.dozer</groupId>
             <artifactId>dozer</artifactId>

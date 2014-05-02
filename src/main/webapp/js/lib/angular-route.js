@@ -9154,7 +9154,7 @@
      *   - Change the URL.
      * - Synchronizes the URL with the browser when the user
      *   - Changes the address bar.
-     *   - Clicks the back or forward button (or clicks a History link).
+     *   - Clicks the back or forward button (or clicks a HistoricMongo link).
      *   - Clicks on a link.
      * - Represents the URL object as a set of methods (protocol, host, port, path, search, hash).
      *

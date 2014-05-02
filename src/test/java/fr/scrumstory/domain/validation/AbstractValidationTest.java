@@ -14,6 +14,7 @@ import fr.scrumstory.AbstractSpringTest;
 import fr.scrumstory.core.exception.ValidationMatcher;
 import fr.scrumstory.core.GenericValidatorBean;
 import fr.scrumstory.core.resource.MessageBundle;
+import org.springframework.test.context.ContextConfiguration;
 
 public abstract class AbstractValidationTest extends AbstractSpringTest {
 
@@ -23,7 +24,6 @@ public abstract class AbstractValidationTest extends AbstractSpringTest {
 	@Autowired
 	@InjectMocks
 	protected GenericValidatorBean validatorBean;
-
 
 	protected ValidationMatcher validationMatcher;
 	

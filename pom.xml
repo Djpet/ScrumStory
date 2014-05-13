@@ -33,8 +33,10 @@
 
         <!-- Logging -->
         <slf4j.version>1.6.1</slf4j.version>
-        <log4j.ilb.version>1.2.16</log4j.ilb.version>
-        <!-- only for runtime -->
+
+        <!-- Runtime -->
+        <log4j.version>1.2.16</log4j.version>
+        <jackson.version>2.3.0</jackson.version>
 
         <!-- Test -->
         <junit.version>4.11</junit.version>
@@ -105,25 +107,6 @@
             <version>${spring-framework.version}</version>
         </dependency>
 
-        <!-- Logging -->
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>${slf4j.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
-            <version>${slf4j.version}</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <version>${log4j.ilb.version}</version>
-            <scope>runtime</scope>
-        </dependency>
-
         <!-- tools -->
         <dependency>
             <groupId>net.sf.dozer</groupId>
@@ -141,6 +124,40 @@
             <version>${lombok.version}</version>
             <scope>provided</scope>
         </dependency>
+
+        <!-- Logging -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+
+        <!-- Runtime -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>${slf4j.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>${log4j.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>${jackson.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+
 
         <!-- Test -->
         <dependency>
@@ -161,19 +178,21 @@
             <version>${spring-framework.version}</version>
             <scope>test</scope>
         </dependency>
+
+        <!--<dependency>-->
+        <!--<groupId>rubygems</groupId>-->
+        <!--<artifactId>bootstrap-sass</artifactId>-->
+        <!--<version>3.1.1.1</version>-->
+        <!--<type>gem</type>-->
+        <!--</dependency>-->
     </dependencies>
 
-    <!-- A supprimer lors de la version stable prévu pour janvier 2014 -->
-    <repositories>
-        <repository>
-            <id>spring-milestones</id>
-            <name>Spring Milestones</name>
-            <url>http://repo.spring.io/milestone</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
+    <!--<repositories>-->
+    <!--<repository>-->
+    <!--<id>rubygems-release</id>-->
+    <!--<url>http://rubygems-proxy.torquebox.org/releases</url>-->
+    <!--</repository>-->
+    <!--</repositories>-->
 
     <build>
         <plugins>
@@ -186,40 +205,40 @@
                     <target>${java.version}</target>
                 </configuration>
             </plugin>
+
+            <!--<plugin>-->
+            <!--<groupId>de.saumya.mojo</groupId>-->
+            <!--<artifactId>gem-maven-plugin</artifactId>-->
+            <!--<version>0.29.4</version>-->
+            <!--<executions>-->
+            <!--<execution>-->
+            <!--<goals>-->
+            <!--<goal>initialize</goal>-->
+            <!--</goals>-->
+            <!--</execution>-->
+            <!--</executions>-->
+            <!--</plugin>-->
+
             <plugin>
-                <groupId>org.nanoko.coffee-mill</groupId>
-                <artifactId>coffee-mill-maven-plugin</artifactId>
-                <version>1.0.1</version>
-                <extensions>true</extensions>
+                <groupId>org.jasig.maven</groupId>
+                <artifactId>sass-maven-plugin</artifactId>
+                <version>1.1.1</version>
                 <executions>
                     <execution>
-                        <id>compile-sass</id>
-                        <phase>compile</phase>
+                        <phase>generate-resources</phase>
                         <goals>
-                            <goal>compile-sass</goal>
+                            <goal>update-stylesheets</goal>
                         </goals>
                         <configuration>
-                            <stylesheetsDir>src/main/stylesheets</stylesheetsDir>
-                            <workDir>target/www/css</workDir>
+                            <sassSourceDirectory>${basedir}/src/main/stylesheets</sassSourceDirectory>
+                            <destination>${project.build.directory}/${project.build.finalName}/css</destination>
+                            <useCompass>true</useCompass>
+                            <!--<gems>-->
+                            <!--<gem>bootstrap-sass</gem>-->
+                            <!--</gems>-->
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
-                <version>2.4</version>
-                <configuration>
-                    <webResources>
-                        <resource>
-                            <directory>target/www/css</directory>
-                            <targetPath>css</targetPath>
-                            <includes>
-                                <include>*.css</include>
-                            </includes>
-                        </resource>
-                    </webResources>
-                </configuration>
             </plugin>
         </plugins>
     </build>

@@ -12,6 +12,7 @@ import fr.scrumstory.repository.mongodb.bean.StoryMongo;
 import fr.scrumstory.repository.mongodb.impl.StoryRepositoryMongo;
 import fr.scrumstory.domain.Story;
 
+import java.util.List;
 
 public class TUStoryDaoMongo extends AbstractMongoTest {
 
@@ -45,5 +46,33 @@ public class TUStoryDaoMongo extends AbstractMongoTest {
 		assertEquals(1, storyMongo.getKey().intValue());
 		assertEquals("description", storyMongo.getDescription());
 	}
-	
+
+
+    @Test
+    public void createTwoStoryWithNextSequence() {
+        // Arrange
+        Story story1 = new Story();
+        story1.setName("Story 1");
+        story1.setDescription("Description 1");
+        story1.setProjectCode("CODE");
+
+        Story story2 = new Story();
+        story2.setName("Story 2");
+        story2.setDescription("Description 2");
+        story2.setProjectCode("CODE");
+
+        sequenceRepositoryMongo.createSequence("CODE");
+
+        // Act
+        storyRepositoryMongo.create(story1);
+        storyRepositoryMongo.create(story2);
+
+        // Assert
+        List<StoryMongo> stories = storyRepository.findAll();
+        assertEquals(2, stories.size());
+        assertEquals("Story 1", stories.get(0).getName());
+        assertEquals(1, stories.get(0).getKey().intValue());
+        assertEquals("Story 2", stories.get(1).getName());
+        assertEquals(2, stories.get(1).getKey().intValue());
+    }
 }

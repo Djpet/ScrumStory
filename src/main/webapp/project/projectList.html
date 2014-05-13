@@ -1,0 +1,10 @@
+<div id="projectList" ng-controller="ProjectList" >
+
+    <h2>Projects</h2>
+
+    <div ng-repeat="project in projects" style="border: 1px solid; margin: 10px;">
+        <p style="font-size: 1em">{{project.code}} : {{project.name}}</p>
+        <p style="font-size: 1em; margin-left: 30px">{{project.description}}</p>
+    </div>
+
+</div>

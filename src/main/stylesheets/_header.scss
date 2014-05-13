@@ -1,12 +1,13 @@
 body {
   header {
     background: MediumSlateBlue;
-
+height: 25px;
     padding-left: 10px;
-    padding-top: 5px;
+    padding-top: 0px;
     padding-right: 5px;
     padding-bottom: 5px;
       z-index: 100;
+      text-align: center;
   }
 
   footer {
@@ -17,6 +18,9 @@ body {
 }
 
 #logo {
+    position: absolute;
+    top: 0px;
+    left: 0px;
   font-family: Verdana;
   font-style: italic;
   font-weight: bold;
@@ -37,4 +41,24 @@ body {
   a {
     color: white;
   }
+}
+
+#masterMenu {
+    background: lighten(MediumSlateBlue, 25);
+
+//    position: relative;
+//    position: absolute;
+//    top: 0px;
+    margin-left:auto;
+    margin-right:auto;
+    width: 50%;
+    font-size: 0.65em;
+//    color: white;
+//    text-align: left;
+    text-align: center;
+
+    a {
+        color: white;
+    }
+
 }

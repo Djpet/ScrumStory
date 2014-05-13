@@ -15,8 +15,9 @@ public class DomainFactory {
      * Inject beans in object domain.
      * @param objectDomain : the object domain
      */
-    public <T> void  autowireProject(T objectDomain) {
+    public <T> T autowireProject(T objectDomain) {
         autowireBeanFactory.autowireBean(objectDomain);
+        return objectDomain;
     }
 
     /**

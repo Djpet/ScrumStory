@@ -36,7 +36,7 @@ public class SequenceRepositoryMongo {
         CounterMongo counterMongo = new CounterMongo();
         counterMongo.setName(sequenceName);
         counterMongo.setSequence(startNumber);
-        mongoTemplate.insert(counterMongo);
+        mongoTemplate.save(counterMongo);
     }
 
     /**

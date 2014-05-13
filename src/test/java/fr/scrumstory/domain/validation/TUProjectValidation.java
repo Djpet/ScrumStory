@@ -71,7 +71,7 @@ public class TUProjectValidation extends AbstractValidationTest {
         project.setName("name");
         project.setDescription("description");
 
-        validationMatcher.addViolation("project.code.size");
+        validationMatcher.addViolation("project.code.length");
 
         assertException.expect(validationMatcher);
 
@@ -86,7 +86,7 @@ public class TUProjectValidation extends AbstractValidationTest {
         project.setName("name");
         project.setDescription("description");
 
-        validationMatcher.addViolation("project.code.size");
+        validationMatcher.addViolation("project.code.length");
 
         assertException.expect(validationMatcher);
 

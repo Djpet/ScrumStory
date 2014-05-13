@@ -1,7 +1,6 @@
 package fr.scrumstory.config;
 
 import com.mongodb.MongoClient;
-import com.mongodb.WriteConcern;
 import org.dozer.Mapper;
 import org.dozer.spring.DozerBeanMapperFactoryBean;
 import org.springframework.context.annotation.Bean;
@@ -16,24 +15,10 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
  * Classe de configuration des beans liés à MongoDB.
  */
 @Configuration
-@EnableMongoRepositories(basePackages = "fr.scrumstory.repository.mongodb.spring")
-@ComponentScan("fr.scrumstory.repository.mongodb")
-public class MongoConfig {
+public class MongoTestConfig extends MongoConfig {
 
     public @Bean MongoDbFactory mongoDbFactory() throws Exception {
-        return new SimpleMongoDbFactory(new MongoClient(), "scrumstory");
+        return new SimpleMongoDbFactory(new MongoClient(), "scrumstorytest");
     }
 
-    public @Bean MongoTemplate mongoTemplate() throws Exception {
-        MongoTemplate mongoTemplate = new MongoTemplate(mongoDbFactory());
-        mongoTemplate.setWriteConcern(WriteConcern.SAFE);
-        return mongoTemplate;
-    }
-
-    @Bean
-    public Mapper mapper() throws Exception {
-        DozerBeanMapperFactoryBean factory = new DozerBeanMapperFactoryBean();
-        factory.afterPropertiesSet();
-        return (Mapper) factory.getObject();
-    }
 }

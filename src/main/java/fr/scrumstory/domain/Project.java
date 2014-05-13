@@ -6,9 +6,11 @@ import fr.scrumstory.repository.Repository;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
+import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
@@ -25,7 +27,7 @@ public class Project {
     private String id;
 
     @NotBlank(message = "project.code.mandatory")
-    @Size(min = 3, max = 6, message = "project.code.size")
+    @Length(min = 3, max = 6, message = "project.code.length")
     @Pattern(regexp = "[a-zA-Z]*", message = "project.code.notAlpha")
     @Getter @Setter
     private String code;

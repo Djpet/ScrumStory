@@ -1,0 +1,28 @@
+<div id="projectNew" ng-controller="ProjectCreate">
+
+    <h2>New Project</h2>
+
+    <form>
+
+        <div class="formField">
+            <label for="project.code">Code</label>
+            <input id="project.code" type="text" ng-model="project.code"/>
+        </div>
+
+        <div class="formField">
+            <label for="project.name">Name</label>
+            <input id="project.name" type="text" ng-model="project.name"/>
+        </div>
+
+        <div class="formField">
+            <label for="project.description">Description</label>
+            <textarea id="project.description" ng-model="project.description">
+            </textarea>
+        </div>
+
+        <!--<button class="button" ng-click="gotoTodoListPage()">&lt; Retour</button> &nbsp;-->
+        <button class="button" ng-click="create(project)">Sauver</button>
+
+    </form>
+
+</div>

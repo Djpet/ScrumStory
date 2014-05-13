@@ -9,7 +9,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
  * Classe utilisé pour représenter une séquence.
  */
 
-@SuppressWarnings("serial")
 @Document(collection = "counters")
 public class CounterMongo {
 

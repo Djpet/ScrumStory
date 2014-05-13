@@ -18,6 +18,11 @@ public class ScrumStoryException extends RuntimeException {
         this.code = code;
     }
 
+    public ScrumStoryException(String code, Throwable throwable) {
+        super(throwable);
+        this.code = code;
+    }
+
     public ScrumStoryException(String code, String message) {
         super(message);
         this.code = code;

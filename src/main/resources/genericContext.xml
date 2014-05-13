@@ -12,8 +12,8 @@
 		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
 		<property name="basenames">
 			<list>
-				<value>fr/scrumstory/i18n/exceptions</value>
-				<value>fr/scrumstory/i18n/validations</value>
+				<value>classpath:fr/scrumstory/i18n/exceptions</value>
+				<value>classpath:fr/scrumstory/i18n/validations</value>
 			</list>
 		</property>
 		<property name="defaultEncoding" value="UTF-8" />
@@ -25,5 +25,6 @@
     <bean class="fr.scrumstory.config.WebConfig" />
     <bean class="fr.scrumstory.config.DomainConfig" />
     <bean class="fr.scrumstory.config.ServiceConfig" />
+    <bean class="fr.scrumstory.config.ControllerConfig" />
 
 </beans>
